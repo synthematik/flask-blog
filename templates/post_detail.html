@@ -13,5 +13,14 @@
 {% endblock %}
 
 {% block content %}
-    {{ post.body }}
+    <div class="tags">
+        {% for tag in tags %}
+            <a href="{{ url_for('tag_detail') }}"><button type="button" class="btn btn-primary">{{ tag.name }}</button></a>
+
+        {% endfor %}
+    </div>
+
+    <div class="main-content">
+        {{ post.body }}
+    </div>
 {% endblock %}
