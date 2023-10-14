@@ -1,10 +1,9 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Этот код будет выполнен после полной загрузки страницы
-    // Получите элемент навигационного меню по его ID
-    var navbar = document.getElementById('navbar');
+const createButton = document.querySelector('.btn-success');
+createButton.addEventListener('click', () => {
+    createButton.classList.add('animate__animated', 'animate__bounce');
+});
 
-    // Измените цвет фона на черный
-    navbar.style.backgroundColor = '#000';
-
-    console.log("Файл JavaScript выполняется");
+const blogButton = document.querySelector('.nav-link.active');
+blogButton.addEventListener('click', () => {
+    blogButton.classList.add('animate__animated', 'animate__bounce');
 });
