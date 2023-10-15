@@ -26,17 +26,18 @@
           <a class="nav-link active animated bounce" aria-current="page" href="{{ url_for('posts.index') }}">Блог</a>
         </li>
 
-      </ul>
 
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('posts.create_post') }}">Создать пост</a>
+          </li>
+      </ul>
       <form class="d-flex" role="search" method="get">
         <input class="form-control me-2" type="search" placeholder="Поиск" name ="q" value="{{ request.args.get('q', '')
                 }}" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Поиск</button>
       </form>
-
     </div>
   </div>
-
 </nav>
 <div class="container">
     <div class="row">
@@ -52,8 +53,6 @@
 
     </div>
 </div>
-
 <script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
-
 </html>
