@@ -36,11 +36,22 @@ def create_post():
 @posts.route('/')
 def index():
     q = request.args.get('q')
-    if q:
-        posts = Blog.query.filter(Blog.title.contains(q) | Blog.body.contains(q)).all()
+
+    page = request.args.get('page')
+
+    if page and page.isdigit():
+        page = int(page)
     else:
-        posts = Blog.query.all()
-    return render_template('index_blueprint.html', posts=posts, q=q)
+        page = 1
+
+    if q:
+        posts = Blog.query.filter(Blog.title.contains(q) | Blog.body.contains(q))
+    else:
+        posts = Blog.query.order_by(Blog.created.desc())
+
+    pages = posts.paginate(page=page, per_page=5)
+
+    return render_template('index_blueprint.html', pages=pages)
 
 @posts.route('/<slug>')
 def post_detail(slug):
