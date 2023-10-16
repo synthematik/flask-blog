@@ -1,6 +1,7 @@
+from app import db
 from datetime import datetime
 import re
-from app import db
+
 
 
 def slugify(s):
@@ -38,7 +39,7 @@ class Tag(db.Model):
     name = db.Column(db.String(100))
     slug = db.Column(db.String(100))
 
-    def __int__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(Tag, self).__init__(*args, **kwargs)
         self.slug = slugify(self.name)
 
