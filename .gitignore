@@ -1,5 +1,5 @@
 
 /.idea/
 config.py
-Lib
-include
+/Lib/
+/include/
